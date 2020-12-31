@@ -13,18 +13,18 @@ class Control{
 		$sql->RecettesSql();
 		$sql->Test2();
 		
-		//$prem_choix="";
-		/*
+		$prem_choix="";
+		
 		//utilisation de fichie Donnees_inc
 		include 'Donnees.inc.php';
 					
 		//option de premier categorie
 		foreach($Hierarchie as $categorie=>$sous_categorie){
-			$prem_choix += intval('<option value="'.$categorie.'">'.$categorie.'</option>');
+			$prem_choix .= '<option value="'.$categorie.'">'.$categorie.'</option>';
 		}
 		
-		echo $prem_choix;
-		*/
+	//	echo $prem_choix;
+		
 		
 		
 		require 'Vue/vue.php';

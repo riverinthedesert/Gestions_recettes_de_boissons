@@ -9,15 +9,15 @@
 			<select id="Ingredient" name="ingredients" onChange="choixIngredient()">
 
 <?php 
-	
+		echo $prem_choix;
 		//utilisation de fichie Donnees_inc
-		include 'Donnees.inc.php';
+	/*	include 'Donnees.inc.php';
 		
 		//option de premier categorie
 		foreach($Hierarchie as $categorie=>$sous_categorie){
 			echo '<option value="'.$categorie.'">'.$categorie.'</option>';
 		}
-	
+	*/
 	// Check connection
 	/*	$mysqli=mysqli_connect('127.0.0.1', 'root', '') or die("Erreur de connexion");
 	if ($mysqli->connect_error) {
@@ -42,13 +42,15 @@
 			</select>
 			
 			<script type="text/javascript">
+			//	require 'Modele/install.php';
 				function choixIngredient(){
+					console.log('i');
 					var mySelect=document.getElementById("Ingredient").value;
 					var tab=document.getElementById('sous_categorie_liste');
-					tab.innerHTML+='<select name="sous_categories"><option value="1">Moselle</option>';
-						/*	<option value="0"></option><option value="1">Moselle</option>
-							<option value="2">Meurthe-et-moselle</option>
-							<option value="3">Vosges</option><option value="4">Meuse</option>*/
+					tab.innerHTML+='<select name="sous_categories"><option value="1">Moselle</option>'
+							'<option value="0"></option><option value="1">Moselle</option>'
+							'<option value="2">Meurthe-et-moselle</option>'
+							'<option value="3">Vosges</option><option value="4">Meuse</option>';
 							tab.innerHTML+='<option value="1">Moselle</option>';
 					for (var i=>j in $Hierarchie){
 						if(j = document.getElementById("Region")){
@@ -60,6 +62,18 @@
 					}
 					tab.innerHTML+='</select>';	
 					tab.innerHTML+='<select name="departement"><option value="0"></option><option value="1">Bas-Rhin</option><option value="2">Haut-Rhin</option></select>';
+					
+				/*	function choixRegion(){
+						console.log('i');
+						var mySelect=document.getElementById("Region").value;
+						if(mySelect=="1"){
+							var tab=document.getElementById('div_departements');
+							tab.innerHTML+='<select name="departement"><option value="0"></option><option value="1">Moselle</option><option value="2">Meurthe-et-moselle</option><option value="3">Vosges</option><option value="4">Meuse</option></select>';
+						}else{
+							var tab=document.getElementById('div_departements');
+							tab.innerHTML+='<select name="departement"><option value="0"></option><option value="1">Bas-Rhin</option><option value="2">Haut-Rhin</option></select>';
+						}
+					}*/
 				}
 			</script>	
 			
